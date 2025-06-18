@@ -2,10 +2,11 @@ pipeline {
     agent any
     stages {
         stage('Clone Repository') {
-            steps {
-                git 'https://github.com/AldoArdiansyah17/php-sample-app.git'
-            }
-        }
+    steps {
+        git branch: 'main', url: 'https://github.com/AldoArdiansyah17/php-sample-app.git'
+    }
+}
+
         stage('Install Dependencies') {
             steps {
                 echo 'Tidak ada dependensi untuk PHP sederhana'
