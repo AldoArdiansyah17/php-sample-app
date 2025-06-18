@@ -13,10 +13,11 @@ pipeline {
             }
         }
         stage('Run Unit Test') {
-            steps {
-                sh 'php test.php'
-            }
-        }
+    steps {
+        sh 'docker run --rm -v $PWD:/app -w /app php:8.1-cli php test.php'
+    }
+}
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t php-sample-app .'
