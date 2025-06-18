@@ -1,4 +1,5 @@
-FROM php:8.1-cli
-COPY . /app
-WORKDIR /app
-CMD ["php", "-S", "0.0.0.0:8000", "index.php"]
+FROM jenkins/jenkins:lts
+
+USER root
+RUN apt-get update && apt-get install -y git docker.io
+USER jenkins
